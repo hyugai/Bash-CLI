@@ -7,11 +7,11 @@ REDIRECTION
 
 SHELL EXPANSION
 - Some special shell's variables:
-    - ? -> the exit status of the last used command
-    - # -> the number of arguments passed to the command line
-    - * -> expand to the list of positional arguments starting with 1, BUT
+    - $? -> the exit status of the last used command
+    - $# -> the number of arguments passed to the command line
+    - $* -> expand to the list of positional arguments starting with 1, BUT
         + no double quotes -> apply word-splitting to each argument and break them into smaller arguments if splitted
         + with double quotes -> expand inside the double quotes, NO world-splitting, and finally result in 1 single string
-    - @ -> like *, BUT
+    - $@ -> like *, BUT
         + with double quotes, keep the list of positional parameters stay the same, no concatenate or apply word-splitting
 
