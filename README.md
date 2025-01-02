@@ -1,7 +1,7 @@
 # CLI-SOME NOTES
 
 REDIRECTION
-- >[regular file] -> redirect the standard output from a successfully executed command to the [file]
+- \>[regular file] -> redirect the standard output from a successfully executed command to the [file]
     - [number]>&[number] -> redirect from standard files abbreviated as numbers (0, 1, 2) to one of the standard files
     - &>[regular file] -> redirect from both standard output and error to the [regular file]
     - << [token] text [token] -> redirect multiple lines strings to the input of a command- "here document"
