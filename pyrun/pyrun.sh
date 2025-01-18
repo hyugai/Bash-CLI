@@ -4,6 +4,9 @@
 PYRUN_FILE="${HOME}/.pyrun"
 
 # supporting functions
+get_names_associated_with_path() {
+    return
+}
 
 # command
 case "$1" in
@@ -13,10 +16,10 @@ case "$1" in
             echo "python ${line[0]}"
         else
             echo "error: Invalid path(${line[0]})!"
-            read -rp  "Do you want to delete it? [Y/n]"
+            read -rp  "Do you want to delete it? [Y/n]: "
             case "${REPLY,,}" in
                 y)
-                    sed -i "/^${line[0]}/d" "$PYRUN_FILE"
+                    sed -i "/^${line[0]//\//\\\/}/d" "$PYRUN_FILE"
                     ;;
                 n)
                     exit 0
@@ -39,6 +42,9 @@ case "$1" in
             echo "error: Invalid path!" >&2
             exit 1
         fi
+        ;;
+
+    -n|--name)
         ;;
 
     *)
