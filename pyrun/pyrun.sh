@@ -35,6 +35,9 @@ case "$1" in
     *.py)
         abs_path=$(readlink -f "$1")
         if [ -f "$abs_path" ]; then
+            # replace '/' with '\/' to distiguish the '/' of '/pattern/action' and '/' of the absolute path
+            # use '\/' -> '\', '\\\/' -> '\/' for string expension
+            # '\\' as a literal escape sequence
             sed -i "/^${abs_path//\//\\\/}/d" "$PYRUN_FILE"
             echo "$abs_path $(date +'%Y/%m/%d %H:%M:%S')" >> "$PYRUN_FILE"
             echo "python $abs_path"
